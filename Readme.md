@@ -6,8 +6,9 @@
 3. 刚好了解到 [Electron](https://github.com/electron/electron) 可以使用 `html + css +js` 做跨平台的应用 感觉很牛逼
 4. 那就练练手学习下吧
 
-## 下载
+## 使用方法
 
-- 下载地址
+- 克隆项目
+- 运行 ./dingding/dingding-linux-x64/dingding
 
 
