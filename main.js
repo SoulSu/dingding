@@ -1,7 +1,7 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-const globalShortcut = electron.globalShortcut
+// const globalShortcut = electron.globalShortcut
 
 
 // 保持一个对于 window 对象的全局引用，不然，当 JavaScript 被 GC，
@@ -21,10 +21,6 @@ app.on('window-all-closed', function () {
 // 这个方法就被调用
 app.on('ready', function () {
 
-  globalShortcut.register('Ctrl+w', function () {
-    return;
-  })
-
   // 创建浏览器窗口。
   mainWindow = new BrowserWindow({
     width: 1000,
@@ -35,6 +31,9 @@ app.on('ready', function () {
     center: true
   });
   mainWindow.setHasShadow(true)
+
+  // @link https://github.com/electron/electron/issues/5951
+  mainWindow.setMenu(null)
 
   // 加载应用的 index.html
   mainWindow.loadURL('https://im.dingtalk.com/');
@@ -55,9 +54,11 @@ app.on('ready', function () {
     mainWindow = null;
   });
 
+  /*
   mainWindow.on('will-quit', function () {
     globalShortcut.unregisterAll()
   })
+  */
 
 
   mainWindow.webContents.on('dom-ready', function(){
