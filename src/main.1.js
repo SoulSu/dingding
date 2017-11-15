@@ -1,7 +1,9 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const Button = electron.Button;
 // const globalShortcut = electron.globalShortcut
+
 
 
 // 保持一个对于 window 对象的全局引用，不然，当 JavaScript 被 GC，
@@ -26,14 +28,20 @@ app.on('ready', function () {
     width: 1000,
     height: 600,
     transparent: true,
-    frame: false,
+    frame: true,
     icon: __dirname + '/logo.png',
-    center: true
+    center: true,
+    show: false,
+    title: 'X-DingDing',
   });
-  mainWindow.setHasShadow(true)
+  mainWindow.setHasShadow(true);
+  // console.log(mainWindow.setThumbarButtons(new Button()));
+  // mainWindow.setSkipTaskbar(true)
+
+  // mainWindow.setMenuBarVisibility
 
   // @link https://github.com/electron/electron/issues/5951
-  mainWindow.setMenu(null)
+  mainWindow.setMenu(null);
 
   // 加载应用的 index.html
   mainWindow.loadURL('https://im.dingtalk.com/');
@@ -41,6 +49,10 @@ app.on('ready', function () {
   // 打开开发工具
   // mainWindow.openDevTools();
   mainWindow.setMenuBarVisibility(false)
+
+  mainWindow.once('ready-to-show',()=>{
+    mainWindow.show();
+  })
 
   mainWindow.on('resize', function () {
     doResize();

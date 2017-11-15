@@ -3,10 +3,14 @@
   "version": "0.0.1",
   "main": "main.js",
   "devDependencies": {
-    "electron-packager": "^9.0.1"
+    "electron-packager": "^9.0.1",
+    "eslint": "^4.11.0"
   },
-  "scripts":{
-    "start":"electron .",
-    "packager" :"electron-packager . dingding --platform=linux --arch=x64 --out ./dingding --electron-version=1.4.13 --version=0.0.1 --overwrite --icon=./logo.png"
+  "scripts": {
+    "start": "electron src/main.js",
+    "packager": "electron-packager . dingding --platform=linux --arch=x64 --out ./dingding --electron-version=1.4.13 --version=0.0.1 --overwrite --icon=./logo.png"
+  },
+  "dependencies": {
+    "electron": "^1.7.9"
   }
 }
