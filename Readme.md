@@ -9,7 +9,7 @@
 ## 使用方法
 
 - 克隆项目
-- 运行 ./dingding/dingding-linux-x64/dingding
+- 运行 ./dist/dingding-linux-x64/dingding
 
 
 
@@ -17,7 +17,6 @@
 
 * [x] 封装web版
 * [x] 添加页面大小改变监听
-* [ ] 添加系统消息通知
-* [ ] 添加截图功能
-
+* [x] 最小化界面并放置到托盘中
+* [x] 新消息托盘图标变化
 
