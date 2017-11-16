@@ -12,3 +12,12 @@
 - 运行 ./dingding/dingding-linux-x64/dingding
 
 
+
+## 实现功能
+
+* [x] 封装web版
+* [x] 添加页面大小改变监听
+* [ ] 添加系统消息通知
+* [ ] 添加截图功能
+
+
