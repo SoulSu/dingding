@@ -2,7 +2,7 @@
 
 // 主窗口
 
-const {BrowserWindow} = require("electron");
+const {BrowserWindow, globalShortcut} = require("electron");
 
 const utils = require("../utils");
 const config = require("../config");
@@ -55,6 +55,7 @@ class MainWindows {
         this.browserWindow.on("ready-to-show", () => {
             that.show();
         });
+        this.registerglobalShortcut()
     }
 
     onClose() {
@@ -62,7 +63,7 @@ class MainWindows {
         this.browserWindow.on("close", (e) => {
             if (that.browserWindow.isVisible()) {
                 e.preventDefault();
-                that.browserWindow.hide();
+                that.hide();
             }
         });
     }
@@ -82,12 +83,14 @@ class MainWindows {
         if (!this.browserWindow.isFocused()) {
             this.browserWindow.focus();
         }
+        this.registerglobalShortcut();
     }
 
     hide() {
         if (this.browserWindow.isVisible()) {
             this.browserWindow.hide();
         }
+        this.unregisterglobalShortcut();
     }
 
     focus() {
@@ -112,6 +115,17 @@ class MainWindows {
         let y = winSize[1];
         let fixPx = 59;
         this.browserWindow.webContents.executeJavaScript(`window.DingDingApp.doResize(` + x + `,` + y + `,` + fixPx + `)`)
+    }
+
+    registerglobalShortcut() {
+        let that = this;
+        globalShortcut.register("ESC", function () {
+            that.hide();
+        })
+    }
+
+    unregisterglobalShortcut() {
+        globalShortcut.unregisterAll();
     }
 }
 
