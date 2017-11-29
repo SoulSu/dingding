@@ -48,6 +48,8 @@ class MainWindows {
         this.onReadyToShow();
         this.onClose();
         this.onResize();
+        this.onFocus();
+        this.onBlur()
     }
 
     onReadyToShow() {
@@ -73,6 +75,14 @@ class MainWindows {
         this.browserWindow.on("resize", () => {
             that.resize();
         });
+    }
+
+    onFocus(){
+        this.browserWindow.on("focus",this.registerglobalShortcut)
+    }
+
+    onBlur(){
+        this.browserWindow.on("blur", this.unregisterglobalShortcut)
     }
 
     show() {
