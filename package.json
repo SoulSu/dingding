@@ -12,6 +12,6 @@
     "packager:x32": "electron-packager . dingding --platform=linux --arch=ia32 --out ./dist/ --electron-version=1.4.13 --version=0.1.0 --overwrite --icon=./assets/logo.png"
   },
   "dependencies": {
-    "electron": "^1.7.9"
+    "electron": "^1.8.8"
   }
 }
