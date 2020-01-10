@@ -4,7 +4,7 @@
   "main": "src/main.js",
   "devDependencies": {
     "electron-packager": "^9.0.1",
-    "eslint": "^4.11.0"
+    "eslint": "^4.18.2"
   },
   "scripts": {
     "start": "electron src/main.js",
